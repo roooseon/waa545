@@ -5,11 +5,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import com.waa.w1d3lab1.domain.User;
 import com.waa.w1d3lab1.repository.UserService;
 
 @Controller
+@SessionAttributes("user")
 public class LoginController {
 
 	@Autowired
@@ -25,16 +28,23 @@ public class LoginController {
 
 		if (userService.authenticat(user)) {
 			model.addAttribute("user", user);
-			return "welcome";
+			return "redirect:/welcome";
 
 		} else {
 			model.addAttribute("errorMessage", "username and/or password is invalid");
 			return "login";
 		}
 	}
-
+	
 	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
 	public String getWelcomePage() {
 		return "welcome";
+	}
+	
+	@RequestMapping(value = "/logout")
+	public String logout(SessionStatus status) {
+		status.setComplete();
+		
+		return "login";
 	}
 }
