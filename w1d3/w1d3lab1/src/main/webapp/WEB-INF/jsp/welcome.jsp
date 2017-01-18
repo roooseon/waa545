@@ -4,9 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<link href="resources/main.css" rel="stylesheet">
+<title>Welcome page</title>
 </head>
 <body>
-	<p>Welcome to my home page</p>
+	<div class="login-form">
+		<p>Welcome to my home page ${user.getUsername()}</p>
+	</div>
+	
 </body>
 </html>
