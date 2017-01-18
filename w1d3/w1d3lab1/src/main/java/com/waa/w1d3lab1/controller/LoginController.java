@@ -14,26 +14,26 @@ public class LoginController {
 
 	@Autowired
 	UserService userService;
-	
+
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String getLoginForm() {
 		return "login";
 	}
-	
+
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String processLoginForm(User user, Model model) {
-		
+
 		if (userService.authenticat(user)) {
 			model.addAttribute("user", user);
 			return "welcome";
-		
+
 		} else {
 			model.addAttribute("errorMessage", "username and/or password is invalid");
 			return "login";
 		}
 	}
-	
-	@RequestMapping(value = "/welcome", method =  RequestMethod.GET) 
+
+	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
 	public String getWelcomePage() {
 		return "welcome";
 	}

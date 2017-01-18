@@ -9,10 +9,10 @@ public class UserServiceImp implements UserService {
 
 	@Override
 	public boolean authenticat(User user) {
-		
+
 		if ("ramesh".equals(user.getUsername()) && "test123".equals(user.getPassword())) {
 			return true;
-		
+
 		} else {
 			return false;
 		}
