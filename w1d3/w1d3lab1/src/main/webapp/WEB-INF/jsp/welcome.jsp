@@ -10,6 +10,9 @@
 <body>
 	<div class="login-form">
 		<p>Welcome to my home page ${user.getUsername()}</p>
+		<div class = "logout">
+			<p><a href = "logout">Logout</a></p>
+		</div>
 	</div>
 	
 </body>
