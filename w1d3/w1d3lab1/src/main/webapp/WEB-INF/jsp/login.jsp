@@ -4,13 +4,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<link href="resources/main.css" rel="stylesheet">
+<title>Login Form</title>
 </head>
 <body>
-	<form method = "post" action = "login">
-		User Name: <input type = "text" name = "username"/> <br />
-		Password:  <input type = "password" name = "password" /> <br />
-		<input type="submit" value="login">
-	</form>
+	<div class="login-form">
+		<form method = "post" action = "login">
+			User Name: <input type = "text" name = "username"/> <br />
+			Password:  <input type = "password" name = "password" /> <br />
+			<input type="submit" value="login">
+		</form>
+		<p style="color: #FF0000;">${errorMessage}</p>
+	</div>
 </body>
 </html>
