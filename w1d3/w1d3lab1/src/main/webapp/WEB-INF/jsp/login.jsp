@@ -10,8 +10,9 @@
 <body>
 	<div class="login-form">
 		<form method = "post" action = "login">
-			User Name: <input type = "text" name = "username"/> <br />
+			User Name: <input type = "text" name = "username" value = "${user}"/> <br />
 			Password:  <input type = "password" name = "password" /> <br />
+			Remember Me: <input type = "checkbox" name = "rememberMe" value ="1" ${checked}> <br />
 			<input type="submit" value="login">
 		</form>
 		<p style="color: #FF0000;">${errorMessage}</p>
