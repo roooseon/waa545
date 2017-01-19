@@ -5,17 +5,38 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="resources/main.css" rel="stylesheet">
+<link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 <title>Login Form</title>
 </head>
 <body>
-	<div class="login-form">
-		<form method = "post" action = "login">
-			User Name: <input type = "text" name = "username" value = "${user}"/> <br />
-			Password:  <input type = "password" name = "password" /> <br />
-			Remember Me: <input type = "checkbox" name = "rememberMe" value ="1" ${checked}> <br />
-			<input type="submit" value="login">
-		</form>
-		<p style="color: #FF0000;">${errorMessage}</p>
+	  <div class="container">
+		  <h2>User Login form</h2>
+		  <form class="form-horizontal" method="post" action="login">
+		    <div class="form-group">
+		      <label class="control-label col-sm-2" for="email">Username:</label>
+		      <div class="col-sm-6">
+		        <input type="text" class="form-control" name="username" placeholder="Enter username" value = "${user}">
+		      </div>
+		    </div>
+		    <div class="form-group">
+		      <label class="control-label col-sm-2" for="pwd">Password:</label>
+		      <div class="col-sm-6">          
+		        <input type="password" class="form-control" name="password" placeholder="Enter password" >
+		      </div>
+		    </div>
+		    <div class="form-group">        
+		      <div class="col-sm-offset-2 col-sm-10">
+		        <div class="checkbox">
+		          <label><input type="checkbox"  name="rememberMe" value ="1" ${checked}> Remember me</label>
+		        </div>
+		      </div>
+		    </div>
+		    <div class="form-group">        
+		      <div class="col-sm-offset-2 col-sm-10">
+		        <button type="submit" class="btn btn-default">Login</button>
+		      </div>
+		    </div>
+	    </form>
 	</div>
 </body>
 </html>
