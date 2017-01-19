@@ -36,6 +36,7 @@
 		        <button type="submit" class="btn btn-default">Login</button>
 		      </div>
 		    </div>
+		    <p class="logout" style="color: #FF0000;">${errorMessage}</p>
 	    </form>
 	</div>
 </body>
