@@ -97,6 +97,4 @@ public class Product {
 	public void setCondition(String condition) {
 		this.condition = condition;
 	}
-	
-	
 }
