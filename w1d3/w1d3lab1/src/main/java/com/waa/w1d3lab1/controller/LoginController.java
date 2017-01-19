@@ -42,7 +42,17 @@ public class LoginController {
 				Cookie ckUsername = new Cookie("username", user.getUsername());
 				ckUsername.setMaxAge(30 * 24  * 60 * 60);
 				response.addCookie(ckUsername);
+			
+			} else {
+				for(Cookie ck: request.getCookies()) {
+					if (ck.getName().equalsIgnoreCase("username")) {
+						
+						ck.setMaxAge(0);
+						response.addCookie(ck);
+					}					
+				}
 			}
+			
 			session.setAttribute("user", user);
 			return "redirect:/welcome";
 
