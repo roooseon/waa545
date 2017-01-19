@@ -58,9 +58,9 @@
 	                    <form:radiobutton path="condition" value="Old"/>Old
 	                    <form:radiobutton path="condition" value="Refurbished"/>Refurbished
                     </td>
-                </tr>
-                
-          </table>      
+                </tr>  
+          </table>   
+          <input type="submit" value="Add Product"/>   
 		      
 	    </form:form>
 	</div>
