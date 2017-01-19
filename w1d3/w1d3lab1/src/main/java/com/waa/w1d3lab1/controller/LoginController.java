@@ -1,5 +1,8 @@
 package com.waa.w1d3lab1.controller;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,21 +21,55 @@ public class LoginController {
 	UserService userService;
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String getLoginForm() {
+	public String getLoginForm(Model model, HttpServletRequest request) {
+		String user = checkCookie(request);
+		
+		if (user != null) {
+			model.addAttribute("checked", "checked");
+		}
+		model.addAttribute("user", user);
 		return "login";
+
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String processLoginForm(User user, Model model, HttpSession session) {
-
+	public String processLoginForm(User user, Model model, HttpSession session, HttpServletRequest request, 
+			HttpServletResponse response) {
+		
 		if (userService.authenticat(user)) {
+			
+			if (request.getParameter("rememberMe") != null) {
+				Cookie ckUsername = new Cookie("username", user.getUsername());
+				ckUsername.setMaxAge(30 * 24  * 60 * 60);
+				response.addCookie(ckUsername);
+			}
 			session.setAttribute("user", user);
 			return "redirect:/welcome";
 
 		} else {
 			model.addAttribute("errorMessage", "username and/or password is invalid");
+			model.addAttribute("user", user.getUsername());
 			return "login";
 		}
+	}
+	
+	
+	@SuppressWarnings("null")
+	public String checkCookie(HttpServletRequest request) {
+		Cookie[] cookies = request.getCookies();
+		
+		
+		if (cookies == null) {
+			return null;
+		}
+		
+		for(Cookie ck: cookies) {
+			if (ck.getName().equalsIgnoreCase("username")) {
+				return ck.getValue();
+			}
+		}
+
+		return null;
 	}
 	
 	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
@@ -42,8 +79,9 @@ public class LoginController {
 	
 	@RequestMapping(value = "/logout")
 	public String logout(HttpSession session) {
-		session.invalidate();;
+		session.removeAttribute("username");
+		session.invalidate();
 		
-		return "login";
+		return "redirect:/login";
 	}
 }
