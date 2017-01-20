@@ -43,14 +43,7 @@
                     <td><form:label path = "unitsInStock">Units In Stock</form:label></td>
                     <td><form:input path = "unitsInStock" class = "form-control"/></td>
                 </tr>
-                <tr>
-                    <td><form:label path = "unitsInOrder">Units In Order</form:label></td>
-                    <td><form:input path = "unitsInOrder" class = "form-control"/></td>
-                </tr>
-                <tr>
-                    <td><form:label path = "discontinued">Discontinued</form:label></td>
-                    <td><form:checkbox path = "discontinued"/></td>
-                </tr>
+                
                 <tr>
                     <td><form:label path = "condition">condition</form:label></td>
                     <td>
