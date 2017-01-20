@@ -12,6 +12,18 @@
 
     <context:component-scan base-package="com.waa.w1d4lab1"/>
     <mvc:annotation-driven />
+    
+    <mvc:annotation-driven validator="validator" />
+    
+    <bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="messages"/>
+	</bean>
+	
+	<bean id="validator"
+		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+		<property name="validationMessageSource" ref="messageSource"></property>
+	</bean>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix">
