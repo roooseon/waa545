@@ -10,16 +10,15 @@
 <body>
 	<div class = "products">
 		<c:forEach items = "${products}" var = "product">
-			      <p><a href = "product/${product.getProductId()}">Product Id: ${product.getProductId()}</a></p>
+				  <p><a href="<c:url value="/product/${product.getProductId()}" />">${product.getProductId()}</a></p>
 			      <p>${product.getName()}</p>
 			      <p>${product.getUnitPrice()}</p>
 			      <p>${product.getDescription()}</p>
 			      <p>${product.getManufacturer()}</p>
 			      <p>${product.getCategory()}</p>
-			      <p>${product.getUnitsInStock()}</p>
 			      <p>${product.getUnitsInOrder()}</p>
-			      <p>${product.isDiscontinued()}</p>
 			      <p>${product.getCondition()}</p>
+			      <p><a href="<c:url value="/product/delete/${product.getProductId()}" />">DELETE</a></p>
 	</c:forEach>		 
 	</div>
 </body>
