@@ -13,6 +13,13 @@
     <context:component-scan base-package="com.waa.w1d4lab2"/>
     <mvc:annotation-driven />
     
+    <!-- Configure Handler Interceptors -->
+    <mvc:interceptors>
+		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
+	</mvc:interceptors>
+	
+	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver" />
+    
     <mvc:annotation-driven validator="validator" />
     
     <bean id="messageSource"
