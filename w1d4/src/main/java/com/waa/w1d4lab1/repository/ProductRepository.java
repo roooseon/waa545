@@ -8,4 +8,10 @@ public interface ProductRepository {
 	public List<Product> getAllProducts();
 	
 	public void addProduct(Product newProduct);
+	
+	public Product getProductById(String productId);
+	
+	public boolean editProductById(String productId, Product product);
+	
+	public boolean deleteProductById(String productId);
 }
