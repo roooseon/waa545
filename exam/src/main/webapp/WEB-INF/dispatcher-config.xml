@@ -12,7 +12,23 @@
 
     <context:component-scan base-package="com.waa.exam" />
     <mvc:annotation-driven />
+    
+    <!--  Message properties files configuration -->
+    <bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="messages"/>
+	</bean>
 
+     <!-- Java Bean validation with help of message properties files id = "messageResource" -->
+	 <mvc:annotation-driven validator="validator" />
+	 
+	 <bean id="validator"
+		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+		<property name="validationMessageSource" ref="messageSource"></property>
+	 </bean>
+	
+	
+	<!--  jsp views file for controller -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix">
             <value>/views/</value>
