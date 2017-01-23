@@ -3,7 +3,7 @@ package com.waa.exam.domain;
 public class Customer {
 	
 	private String country;
-	private String javaSkills;
+	private String javaSkill;
 	
 	public Customer() {}
 	
@@ -13,12 +13,11 @@ public class Customer {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	public String getJavaSkills() {
-		return javaSkills;
+	public String getJavaSkill() {
+		return javaSkill;
 	}
-	public void setJavaSkills(String javaSkills) {
-		this.javaSkills = javaSkills;
+	public void setJavaSkill(String javaSkill) {
+		this.javaSkill = javaSkill;
 	}
-	
-	
+
 }
