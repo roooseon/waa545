@@ -17,10 +17,18 @@
             <artifactId>spring-webmvc</artifactId>
             <version>4.2.2.RELEASE</version>
         </dependency>
+        
         <dependency>
 		    <groupId>javax.servlet</groupId>
 		    <artifactId>javax.servlet-api</artifactId>
 		    <version>3.0.1</version>
+		</dependency>
+		
+		<!--  Java Bean Validation (JSR-303)-->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.3.4.Final</version>
 		</dependency>
         
     </dependencies>
