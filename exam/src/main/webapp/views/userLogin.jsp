@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>User Login Page</title>
 </head>
 <body>
 			<form:form modelAttribute = "newUser" method = "POST">
@@ -14,6 +14,7 @@
 				<tr>
 					<td><spring:message code = "addUser.login.form.username.label"></spring:message></td>
 					<td><form:input path = "username"></form:input></td>
+					<td><form:errors path = "username" cssStyle="color: red"></form:errors></td>
 				</tr>
 				<tr>
 					<td><spring:message code = "addUser.login.form.password.label"></spring:message></td>
