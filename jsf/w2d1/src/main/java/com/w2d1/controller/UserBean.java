@@ -27,8 +27,10 @@ public class UserBean implements Serializable {
 		this.password = password;
 	}
 	
-	public String authenticate() {
-		return "welcome";
+	public String getGreeting() {
+		if (name == null || name.isEmpty()) return null;
+		
+		else return "Welcome: " + name;
 	}
 	
 }
