@@ -7,25 +7,25 @@ import java.util.List;
 public class ProblemBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	private List<Integer> sequences;
+	private List<Integer> sequence;
 	private int solution;
 	
 	public ProblemBean(){}
 	
 	public ProblemBean(int[] values, int solution) {
-		sequences = new ArrayList<>();
+		sequence = new ArrayList<>();
 		
 		for (int i = 0; i < values.length; i++) {
-			sequences.add(values[i]);
+			sequence.add(values[i]);
 		}
 		this.solution = solution;
 	}
 	
-	public List<Integer> getSequences() {
-		return sequences;
+	public List<Integer> getSequence() {
+		return sequence;
 	}
-	public void setSequences(List<Integer> sequences) {
-		this.sequences = sequences;
+	public void setSequence(List<Integer> sequence) {
+		this.sequence = sequence;
 	}
 	public int getSolution() {
 		return solution;
