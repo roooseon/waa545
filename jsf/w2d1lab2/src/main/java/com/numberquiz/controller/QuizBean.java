@@ -4,15 +4,17 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Locale;
 
-import javax.enterprise.context.SessionScoped;
+import javax.enterprise.context.Conversation;
+import javax.enterprise.context.ConversationScoped;
 import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 @Named("quizBean")
-@SessionScoped
+@ConversationScoped()
 public class QuizBean implements Serializable {
-	
+	@Inject Conversation conversation;
 	private static final long serialVersionUID = 1L;
 	
 	private ArrayList<ProblemBean> problems = new ArrayList<>();
@@ -45,15 +47,15 @@ public class QuizBean implements Serializable {
 	
 	public void setAnswer(String newValue) {
 		try {
+			
+			
+			if(currentIndex == 0) conversation.begin();
 			int answer = Integer.parseInt(newValue.trim());
 			
-			if (getCurrent().getSolution() == answer) 
-				{
-				  score++;
-
-				}else {
-				currentIndex = (currentIndex + 1) % problems.size(); 
-			}
+			if (getCurrent().getSolution() == answer) score++;
+				currentIndex = (currentIndex + 1) % problems.size();
+				
+				if(currentIndex == 0) conversation.end();
 		} catch(NumberFormatException ex) {
 			
 		}
