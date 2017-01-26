@@ -5,35 +5,21 @@
 	   xmlns:f  = "http://xmlns.jcp.org/jsf/core">
 <h:head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>#{msgs.indexWindowTitle}</title>
+<title>#{msgs.windowTitle}</title>
+        <h:outputStylesheet library = "css" name = "styles.css"></h:outputStylesheet>
+		<h:outputScript library = "javascript" name = "checkPassword.js"></h:outputScript>
 </h:head>
 <h:body>
 	<h:form>
-		<h:commandLink action = "#{localChanger.germanAction}">
-			<h:graphicImage 
-					library = "images" name = "de_flag.gif" style="border: 0px; margin-right: 1em;">
-			</h:graphicImage>
-		</h:commandLink>
-		<h:commandLink action = "#{localChanger.englishAction}">
-			<h:graphicImage 
-				library = "images" name = "en_flag.gif" style="border: 0px; margin-right: 1em;">
-			</h:graphicImage>
-		</h:commandLink>
-		<p><h:outputText 
-				value = "#{msgs.indexPageTitle}" style="font-style: italic; font-size: 1.3em">
-		   </h:outputText>
-		 </p>
-		 <h:panelGrid columns = "2">
-		 		#{msgs.namePrompt}
-		 		<h:inputText value = "#{user.name}"></h:inputText>
-		 		#{msgs.passwordPrompt} 
-		 		<h:inputSecret value = "#{user.password}"></h:inputSecret>
-		 		#{msgs.tellUsPrompt}
-		 		<h:inputTextarea 
-		 				value = "#{user.aboutYourself}" rows = "5" cols = "35">
-		 		</h:inputTextarea>
-		 </h:panelGrid>
-		 <h:commandButton value = "#{msgs.submitPrompt}" action = "thankYou"></h:commandButton>
+	<h:panelGrid columns = "2" columnClasses = "evenColumns, oddColumns">
+			#{msgs.namePrompt}
+			<h:inputText></h:inputText>
+			#{msgs.passwordPrompt}
+			<h:inputSecret id = "password"></h:inputSecret>
+			#{msgs.confirmPasswordPrompt}
+			<h:inputSecret id = "passwordConfirm"></h:inputSecret>
+	</h:panelGrid>
+	<h:commandButton type = "button" value = "Submit Form" onclick = "checkPassword(this.form)"></h:commandButton>
 	</h:form>
 </h:body>
 </html>

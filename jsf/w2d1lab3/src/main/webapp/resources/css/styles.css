@@ -1,0 +1,8 @@
+@CHARSET "UTF-8";
+.evenColumns {
+   font-style: italic;		
+}
+
+.oddColumns {
+   padding-left: 1em;
+}
