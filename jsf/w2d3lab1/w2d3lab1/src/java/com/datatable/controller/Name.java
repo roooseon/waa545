@@ -10,6 +10,7 @@ import java.io.Serializable;
 public class Name implements Serializable {
     private String first;
     private String last;
+    private String editable;
     
     public Name(String first, String last) {
         this.first =  first;
@@ -18,6 +19,14 @@ public class Name implements Serializable {
     
     public String getFirst() {
         return first;
+    }
+
+    public String getEditable() {
+        return editable;
+    }
+
+    public void setEditable(String editable) {
+        this.editable = editable;
     }
 
     public void setFirst(String first) {
