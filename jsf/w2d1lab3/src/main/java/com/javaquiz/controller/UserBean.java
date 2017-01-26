@@ -11,8 +11,7 @@ public class UserBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private String name;
-	private String password;
-	private String aboutYourself;
+	private String age;
 	
 	public String getName() {
 		return name;
@@ -20,16 +19,10 @@ public class UserBean implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getPassword() {
-		return password;
+	public String getAge() {
+		return age;
 	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public String getAboutYourself() {
-		return aboutYourself;
-	}
-	public void setAboutYourself(String aboutYourself) {
-		this.aboutYourself = aboutYourself;
+	public void setAge(String age) {
+		this.age = age;
 	}
 }

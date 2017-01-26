@@ -7,19 +7,25 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>#{msgs.windowTitle}</title>
         <h:outputStylesheet library = "css" name = "styles.css"></h:outputStylesheet>
-		<h:outputScript library = "javascript" name = "checkPassword.js"></h:outputScript>
 </h:head>
 <h:body>
 	<h:form>
-	<h:panelGrid columns = "2" columnClasses = "evenColumns, oddColumns">
-			#{msgs.namePrompt}
-			<h:inputText></h:inputText>
-			#{msgs.passwordPrompt}
-			<h:inputSecret id = "password"></h:inputSecret>
-			#{msgs.confirmPasswordPrompt}
-			<h:inputSecret id = "passwordConfirm"></h:inputSecret>
-	</h:panelGrid>
-	<h:commandButton type = "button" value = "Submit Form" onclick = "checkPassword(this.form)"></h:commandButton>
+    	<h:outputFormat value = "#{msgs.greeting}" styleClass = "emphasis"></h:outputFormat>
+    	<br />
+    	<h:messages errorClass = "errors" layout = "table"></h:messages>
+    	<h:panelGrid columns = "3">
+    		#{msgs.namePrompt}
+    		<h:inputText id = "name" value = "#{user.name}" required = "true"
+    					label = "#{msgs.namePrompt}">
+    			</h:inputText>
+    	   <h:message for="name" errorClass = "errors"></h:message>
+    	   #{msgs.agePrompt}
+    	   <h:inputText id  = "age" value  = "#{user.age}" required = "true"
+    	   					size = "3" label = "#{msgs.agePrompt}">
+    	   </h:inputText>
+    	   <h:message for="age" errorClass  = "errors"></h:message>		
+    	</h:panelGrid>
+    	<h:commandButton value = "#{msgs.submitPrompt}"></h:commandButton>
 	</h:form>
 </h:body>
 </html>

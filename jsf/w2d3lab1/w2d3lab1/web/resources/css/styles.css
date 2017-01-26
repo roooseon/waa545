@@ -1,0 +1,32 @@
+.caption {
+    font-size: 0.95em;
+    font-style: italic;
+    width: 250px;
+}
+.nameTable {
+    border: thin solid black; 
+}
+.header {
+    text-align: center;
+    font-style: italic;
+    color: snow;
+    background: teal;
+}
+.oddColumn {
+    height: 25px;
+    text-align: center;
+    background: MediumTurquoise;
+}
+.evenColumn {
+    text-align: center;
+    background: PowderBlue;
+}
+.oddRow {
+   height: 25px;
+    text-align: center;
+    background: MediumTurquoise;
+}
+.evenRow {
+    text-align: center;
+    background: PowderBlue;
+}
