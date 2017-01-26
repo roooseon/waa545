@@ -5,9 +5,21 @@
 	   xmlns:f  = "http://xmlns.jcp.org/jsf/core">
 <h:head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<h:title>Java Quiz</h:title>
+<title>#{msgs.title}</title>
 </h:head>
-<body>
-
-</body>
+<h:body>
+	<h:form>
+		<table>
+			<tr>
+				<td>#{msgs.question}</td>
+				<td><h:inputText name = "#{quizBean.question}"></h:inputText></td>
+			</tr>
+			<tr>
+				<td>#{msgs.answer}</td>
+				<td><h:inputText name = "#{quizBean.answer}"></h:inputText></td>
+			</tr>
+		</table>
+		<h:commandButton action = "#{quizBean.welcomeAction}" value = "Submit"></h:commandButton>
+	</h:form>
+</h:body>
 </html>
