@@ -12,21 +12,16 @@
     color: snow;
     background: teal;
 }
-.oddColumn {
-    height: 25px;
-    text-align: center;
-    background: MediumTurquoise;
-}
-.evenColumn {
-    text-align: center;
-    background: PowderBlue;
-}
 .oddRow {
-   height: 25px;
+    height: 25px;
     text-align: center;
     background: MediumTurquoise;
 }
 .evenRow {
     text-align: center;
     background: PowderBlue;
+}
+.addStudnet {
+    display: block; 
+    text-align: center;
 }
