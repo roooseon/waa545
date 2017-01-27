@@ -5,36 +5,31 @@
  */
 package com.validation.controller;
 
-import java.util.Date;
+import com.validation.Service.PaymentService;
+import com.validation.domain.Payment;
+import java.io.Serializable;
+import javax.enterprise.context.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 @Named("paymentBean")
-public class PaymentBean {
-    private double amount;
-    private String card = "";
-    private Date date = new Date();
-
-    public double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
-
-    public String getCard() {
-        return card;
-    }
-
-    public void setCard(String card) {
-        this.card = card;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
+@SessionScoped
+public class PaymentBean implements Serializable{
+   
+   @Inject
+   PaymentService paymentService;
+   Payment payment = new Payment();
+   
+   public Payment getPayment() {
+       return payment;
+   }
+   
+   public String paymentAddAction(Payment payment) {
+       paymentService.addPayment(payment);
+       FacesContext.getCurrentInstance().getExternalContext().getFlash()
+               .put("listPaymentDetails", paymentService.getAllPayments());
+       
+       return "paymentDetails"+"?faces-redirect=true";
+   }
 }

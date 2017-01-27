@@ -1,12 +1,30 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>#{msgs.title}</title>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <h:form>
+            #{msgs.enterPayement}
+            <h:panelGrid columns = "2" cellpadding = "10" cellspacing = "1">
+                <h:outputLabel value = "#{msgs.amountPrompt}" />
+                <h:inputText value = "#{paymentBean.payment.amount}"> 
+                </h:inputText>
+                
+                <h:outputLabel value = "#{msgs.cardPrompt}" />
+                <h:inputText value = "#{paymentBean.payment.card}" >
+                </h:inputText>
+                
+                <h:outputLabel value = "#{msgs.datePrompt}" />
+                <h:inputText value = "#{paymentBean.payment.date}" > 
+                    <f:convertDateTime pattern = "MM/yyyy" />
+                </h:inputText>                
+            </h:panelGrid>
+            <h:commandButton value = "#{msgs.process}" action = "#{paymentBean.paymentAddAction(paymentBean.payment)}"/>
+        </h:form>
     </h:body>
 </html>
 

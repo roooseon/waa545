@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h = "http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>#{msgs.paymentDetail}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h:dataTable value = "#{flash.listPaymentDetails}" var = "singlePayment">
+            
+            <h:column>
+                <f:facet name = "header">
+                    <h:outputText value = "#{msgs.amountPrompt}" />
+                </f:facet>
+                <h:outputText value = "#{singlePayment.amount}" > 
+                    <f:convertNumber maxFractionDigits = "2" type = "currency">
+                    </f:convertNumber>
+                </h:outputText>
+            </h:column>
+            <h:column>
+                <f:facet name = "header">
+                    <h:outputText value = "#{msgs.amountPrompt}" />
+                </f:facet>
+                <h:outputText value = "#{singlePayment.card}" />
+            </h:column>
+            <h:column>
+                <f:facet name = "header">
+                    <h:outputText value = "#{msgs.amountPrompt}" />
+                </f:facet>
+                <h:outputText value = " #{singlePayment.date}" > 
+                    <f:convertDateTime 
+                        pattern = "MM/yyyy" >
+                    </f:convertDateTime>
+                </h:outputText>
+            </h:column>
+        </h:dataTable>
+    </h:body>
+</html>
