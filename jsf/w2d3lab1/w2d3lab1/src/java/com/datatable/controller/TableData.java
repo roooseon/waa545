@@ -14,6 +14,7 @@ import javax.inject.Named;
 @Named("tableData")
 @SessionScoped
 public class TableData implements Serializable{
+    Name item = new Name();
     private List<Name> names = new ArrayList<>();
     
     public TableData() {
@@ -25,5 +26,23 @@ public class TableData implements Serializable{
     
     public List<Name> getNames() {
         return this.names;
+    }
+    
+    public String saveAction() {
+        names.forEach((name) -> {
+            name.setEditable(false);
+        });
+        return null;
+    }
+    public String deleteRowAction(Name nameToDelete) {
+        names.remove(nameToDelete);
+        return null;
+    }
+    public Name getItem() {
+        return this.item;
+    }
+    public String addNameAction() {
+        names.add(new Name(item.getFirst(), item.getLast()));
+        return "index";
     }
 }
