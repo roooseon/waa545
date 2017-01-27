@@ -10,7 +10,9 @@ import java.io.Serializable;
 public class Name implements Serializable {
     private String first;
     private String last;
-    private String editable;
+    private boolean editable;
+    
+    public Name() {}
     
     public Name(String first, String last) {
         this.first =  first;
@@ -21,11 +23,11 @@ public class Name implements Serializable {
         return first;
     }
 
-    public String getEditable() {
+    public boolean getEditable() {
         return editable;
     }
 
-    public void setEditable(String editable) {
+    public void setEditable(boolean editable) {
         this.editable = editable;
     }
 
