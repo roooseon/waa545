@@ -13,38 +13,39 @@ import javax.inject.Named;
 @Named("paymentBean")
 @SessionScoped
 public class PaymentBean implements Serializable {
-    private String amount;
-    private String card = "";
+
+    private double amount;
+    private CreditCard card = new CreditCard("");
     private Date date = new Date();
 
-    public String getAmount() {
+    public void setAmount(double newValue) {
+        amount = newValue;
+    }
+
+    public double getAmount() {
         return amount;
     }
 
-    public void setAmount(String amount) {
-        this.amount = amount;
+    public void setCard(CreditCard newValue) {
+        card = newValue;
     }
 
-    public String getCard() {
+    public CreditCard getCard() {
         return card;
     }
 
-    public void setCard(String card) {
-        this.card = card;
+    public void setDate(Date newValue) {
+        date = newValue;
     }
 
     public Date getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
-    
     public String resultAction() {
         return "result" + "?faces-redirect=true";
     }
-    
+
     public String backAction() {
         return "index" + "?faces-redirect=true";
     }
