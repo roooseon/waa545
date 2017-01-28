@@ -8,7 +8,7 @@ and open the template in the editor.
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h = "http://java.sun.com/jsf/html"
       xmlns:f = "http://java.sun.com/jsf/core"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:corejsf = "http://corejsf.com">
     <h:head>
         <title>#{msgs.title}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -21,7 +21,9 @@ and open the template in the editor.
                 <h:outputText value = "#{paymentBean.amount}" />
                 
                 #{msgs.creditCard}
-                <h:outputText value = "#{paymentBean.card}" />
+                <h:outputText value = "#{paymentBean.card}" >
+                    <corejsf:convertCreditCard separator = "-" />
+                </h:outputText>
                 
                 #{msgs.expirationDate}
                 <h:outputText value = "#{paymentBean.date}" >
