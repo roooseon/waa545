@@ -7,7 +7,11 @@ package com.corejsf.controller;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
 
+@Named("paymentBean")
+@SessionScoped
 public class PaymentBean implements Serializable {
     private String amount;
     private String card = "";
@@ -35,5 +39,13 @@ public class PaymentBean implements Serializable {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+    
+    public String resultAction() {
+        return "result" + "?faces-redirect=true";
+    }
+    
+    public String backAction() {
+        return "index" + "?faces-redirect=true";
     }
 }
