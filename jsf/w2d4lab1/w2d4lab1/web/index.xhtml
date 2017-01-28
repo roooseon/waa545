@@ -5,25 +5,35 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>#{msgs.title}</title>
+        <h:outputStylesheet library = "css" name = "styles.css" ></h:outputStylesheet>
     </h:head>
     <h:body>
         <h:form>
             #{msgs.enterPayement}
-            <h:panelGrid columns = "2" cellpadding = "10" cellspacing = "1">
+            <h:panelGrid columns = "3" cellpadding = "10" cellspacing = "1">
                 <h:outputLabel value = "#{msgs.amountPrompt}" />
-                <h:inputText value = "#{paymentBean.payment.amount}"> 
+                <h:inputText id = "amount" value = "#{paymentBean.payment.amount}" required = "true" > 
+                    <f:convertNumber minFractionDigits = "2"/>
+                    <f:validateDoubleRange minimum  = "10" maximum = "10000" />
                 </h:inputText>
+                <h:message for = "amount" styleClass = "errorMessage"></h:message>
                 
                 <h:outputLabel value = "#{msgs.cardPrompt}" />
-                <h:inputText value = "#{paymentBean.payment.card}" >
+                <h:inputText id = "card" value = "#{paymentBean.payment.card}" required = "true" 
+                             requiredMessage = "#{msgs.cardRequired}">
+                        <f:validateLength minimum = "13" />
                 </h:inputText>
+                <h:message for = "card" styleClass = "errorMessage"></h:message> 
                 
                 <h:outputLabel value = "#{msgs.datePrompt}" />
-                <h:inputText value = "#{paymentBean.payment.date}" > 
-                    <f:convertDateTime pattern = "MM/yyyy" />
-                </h:inputText>                
+                <h:inputText id  = "date" value = "#{paymentBean.payment.date}" > 
+                    <f:convertDateTime pattern="MM/yyyy"/>
+                </h:inputText>   
+                <h:message for  = "date" styleClass = "errorMessage"></h:message>
             </h:panelGrid>
-            <h:commandButton value = "#{msgs.process}" action = "#{paymentBean.paymentAddAction(paymentBean.payment)}"/>
+            <h:commandButton value = "#{msgs.process}" action = "#{paymentBean.paymentAddAction()}"/>
+            <h:commandButton value = "#{msgs.cancelButton}" action = "#{paymentBean.paymentCancelAction()}"
+                             immediate = "true"/>
         </h:form>
     </h:body>
 </html>
