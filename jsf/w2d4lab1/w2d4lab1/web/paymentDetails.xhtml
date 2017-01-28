@@ -14,7 +14,6 @@ and open the template in the editor.
     </h:head>
     <h:body>
         <h:dataTable value = "#{flash.listPaymentDetails}" var = "singlePayment">
-            
             <h:column>
                 <f:facet name = "header">
                     <h:outputText value = "#{msgs.amountPrompt}" />
@@ -24,22 +23,23 @@ and open the template in the editor.
                     </f:convertNumber>
                 </h:outputText>
             </h:column>
+            
             <h:column>
                 <f:facet name = "header">
-                    <h:outputText value = "#{msgs.amountPrompt}" />
+                    <h:outputText value = "#{msgs.cardPrompt}" />
                 </f:facet>
                 <h:outputText value = "#{singlePayment.card}" />
             </h:column>
+            
             <h:column>
                 <f:facet name = "header">
-                    <h:outputText value = "#{msgs.amountPrompt}" />
+                    <h:outputText value = "#{msgs.datePrompt}" />
                 </f:facet>
                 <h:outputText value = " #{singlePayment.date}" > 
-                    <f:convertDateTime 
-                        pattern = "MM/yyyy" >
-                    </f:convertDateTime>
+                    <f:convertDateTime pattern="MM/yyyy"/>
                 </h:outputText>
             </h:column>
+            
         </h:dataTable>
     </h:body>
 </html>
