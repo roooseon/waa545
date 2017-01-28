@@ -25,11 +25,20 @@ public class PaymentBean implements Serializable{
        return payment;
    }
    
-   public String paymentAddAction(Payment payment) {
+   public String paymentAddAction() {
        paymentService.addPayment(payment);
+       payment = new Payment();
        FacesContext.getCurrentInstance().getExternalContext().getFlash()
                .put("listPaymentDetails", paymentService.getAllPayments());
        
-       return "paymentDetails"+"?faces-redirect=true";
+       return "paymentDetails" + "?faces-redirect=true";
+   }
+   
+   public String paymentCancelAction() {
+       return "canceled" + "?faces-redirect=true";
+   }
+   
+   public String indexAction() {
+       return "index" + "?faces-redirect=true";
    }
 }

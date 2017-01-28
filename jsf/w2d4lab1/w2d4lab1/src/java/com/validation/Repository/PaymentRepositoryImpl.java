@@ -16,6 +16,7 @@ public class PaymentRepositoryImpl implements PaymentRepository, Serializable {
     @Override
     public void addPayment(Payment payment) {
         payments.add(payment);
+        
     }   
 
     @Override
