@@ -4,6 +4,11 @@
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
 
+    <converter> 
+      <converter-for-class>com.corejsf.controller.CreditCard</converter-for-class> 
+      <converter-class>com.corejsf.controller.CreditCardConverter</converter-class> 
+   </converter> 
+    
     <application>
         <resource-bundle>
             <base-name>com.corejsf.messages.messages</base-name>
