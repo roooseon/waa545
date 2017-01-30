@@ -27,5 +27,6 @@ public class CountryListener implements ValueChangeListener {
         } else {
             context.getViewRoot().setLocale(Locale.CANADA);
         } 
+        context.renderResponse();
     }
 }
