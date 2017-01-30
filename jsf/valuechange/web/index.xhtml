@@ -22,11 +22,10 @@
                 <h:inputText value = "#{form.state}"/>
                 
                 #{msgs.countryPrompt}
-                <h:selectOneMenu value = "#{form.country}" onchange = "submit()" 
-                                 valueChangeListener = "#{form.countryChanged}">
+                <h:selectOneMenu value = "#{form.country}" onchange = "submit()">
+                    <f:valueChangeListener type = "com.jsfcore.controller.CountryListener" />
                     
-                    <f:selectItems value = "#{form.countries}" var = "loc" 
-                                  itemLabel = "#{loc.displayCountry}" itemValue = "#{loc.country}" />
+                    <f:selectItems value = "#{form.countryNames}" />
                 </h:selectOneMenu>
             </h:panelGrid>
             <h:commandButton value  = "#{msgs.submit}" />
