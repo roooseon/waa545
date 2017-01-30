@@ -13,16 +13,16 @@
             <h:panelGrid columns = "2" >
                 
                 #{msgs.stressAddressPrompt}
-                <h:inputText value = "#{form.streetAddress}" />
+                <h:inputText value = "#{form.streetAddress}" label = "#{msgs.stressAddressPrompt}" required = "true"/>
                 
                 #{msgs.cityPrompt}
-                <h:inputText value = "#{form.city}" />
+                <h:inputText value = "#{form.city}" label = "#{msgs.countryPrompt}" required = "true" />
                 
                 #{msgs.statePrompt}
-                <h:inputText value = "#{form.state}"/>
+                <h:inputText value = "#{form.state}" label = "#{msgs.statePrompt}" required = "true"/>
                 
                 #{msgs.countryPrompt}
-                <h:selectOneMenu value = "#{form.country}" onchange = "submit()">
+                <h:selectOneMenu value = "#{form.country}" onchange = "submit()" immediate = "true">
                     <f:valueChangeListener type = "com.jsfcore.controller.CountryListener" />
                     
                     <f:selectItems value = "#{form.countryNames}" />
