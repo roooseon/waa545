@@ -8,6 +8,8 @@ package com.jsfcore.controller;
 import java.io.Serializable;
 import java.util.Locale;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ValueChangeEvent;
 import javax.inject.Named;
 
 @Named("form")
@@ -23,6 +25,7 @@ public class RegisterForm implements Serializable {
     public Locale[] getCountries() {
         return countries;
     }
+    
     public String getStreetAddress() {
         return streetAddress;
     }
@@ -53,6 +56,16 @@ public class RegisterForm implements Serializable {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+    
+    public void countryChanged(ValueChangeEvent event) {
+        for (Locale loc: countries) {
+            
+            if(loc.getCountry().equals(event.getNewValue())) {
+                FacesContext.getCurrentInstance().getViewRoot().setLocale(loc);
+            } 
+        }
+        FacesContext.getCurrentInstance().renderResponse();
     }
     
 }
