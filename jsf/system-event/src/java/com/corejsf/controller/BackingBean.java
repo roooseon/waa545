@@ -101,4 +101,7 @@ public class BackingBean implements Serializable {
     public String indexAction() {
         return "index" + "?faces-redirect=true";
     }
+    public String enterDateAction() {
+        return "enterDate" + "?faces-redirect=true";
+    }
 }
