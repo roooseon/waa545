@@ -1,9 +1,10 @@
 package com.corejsf;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.enterprise.context.RequestScoped;
-
+import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 import javax.inject.Inject;
@@ -37,9 +38,15 @@ public class UserBean {
 	}
 	// Fired in Process Validations Phase
 	public void findLastName(ActionEvent e){
+		FacesContext context = FacesContext.getCurrentInstance();
+		
+		Map<String, String> params = context.getExternalContext().getRequestParameterMap();
+		String firstname =  params.get("form:firstname");
+
+
 		List<User> userList = userRepo.getUserList();
 		for(int i=0; i<userList.size();i++){
-			if(userList.get(i).getFirstName().equals(getUser().getFirstName())){
+			if(userList.get(i).getFirstName().equals(firstname)){
 				user.setLastName(userList.get(i).getLastName());
 			}
 		}
