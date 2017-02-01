@@ -27,15 +27,21 @@ and open the template in the editor.
         <composite:attribute name = "loginAction" 
                              method-signature = "java.lang.String action()" >
         </composite:attribute>
+        
+        <composite:facet name = "header"/>
+        <composite:facet name = "error"/>
+        
     </composite:interface>
     
     <composite:implementation>
+        <composite:renderFacet name = "header"/>
+        
         <h:form id = "form" >
-            <h:panelGrid columns = "2">
+            <h:panelGrid columns = "2" >
                 #{cc.attrs.namePrompt}
                 <h:panelGroup>
                     <h:inputText id = "name" label = "name"
-                             value ="#{cc.attrs.name}" />
+                             value ="#{cc.attrs.name}"  />
                     <h:message for = "name" />
                 </h:panelGroup>
                
@@ -53,6 +59,8 @@ and open the template in the editor.
                                 action = "#{cc.attrs.loginAction}" />
             </p>
         </h:form>
+        
+        <composite:renderFacet name = "error"/>
         <p>#{cc.resourceBundleMap.footer}</p>
     </composite:implementation>
     

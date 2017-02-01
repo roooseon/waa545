@@ -5,6 +5,7 @@
       xmlns:util = "http://xmlns.jcp.org/jsf/composite/util"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
+        <h:outputStylesheet library = "css" name = "styles.css"/>
         <title>Welcome</title>
     </h:head>
     <h:body>
@@ -22,6 +23,16 @@
             <f:validator validatorId = "com.corejsf.Password" for = "passwordInput" />
             <f:actionListener type = "com.corejsf.controller.LoginActionListener" 
                               for = "loginButton" />
+            
+            <f:facet name = "header">
+                <div class = "prompt">
+                    #{msgs.loginPrompt}
+                </div>
+            </f:facet>
+            
+            <f:facet name = "error">
+                <h:messages layout = "table" styleClass = "error" />
+            </f:facet>
         </util:login>
     </h:body>
 </html>
