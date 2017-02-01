@@ -19,8 +19,8 @@ public class PasswordValidator implements Validator{
     public void validate(FacesContext context, UIComponent component, Object value) throws ValidatorException {
         String pwd = (String) value;
         
-        if (pwd.contains("@")) {
-            throw new ValidatorException(new FacesMessage("Passwords cannot contain @"));
+        if (pwd.startsWith("@")) {
+            throw new ValidatorException(new FacesMessage("Passwords cannot start with @"));
         }
     }
     
