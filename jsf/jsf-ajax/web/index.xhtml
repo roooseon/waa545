@@ -1,12 +1,32 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f = "http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>#{msgs.windnowTitle}</title>
     </h:head>
     <h:body>
-        Hello from Facelets
+            <h:form id = "form">
+                <h3>#{msgs.formHeader}</h3>
+                <h:panelGrid columns = "3">
+
+                    #{msgs.usernamePrompt}
+                    <h:inputText value="#{user.username}" id="nameInput"> 
+                        <f:ajax event="blur" execute="@this passwordInput" 
+                                render="nameError passwordError" />
+                    </h:inputText>
+                    <h:outputText id="nameError" value = "#{user.username}" />
+
+                    #{msgs.passwordPrompt}
+                    <h:inputSecret value = "#{user.password}" id="passwordInput" > 
+                         <f:ajax event="blur" execute="@this" 
+                                render="passwordError" />
+                    </h:inputSecret>
+                    <h:outputText id = "passwordError" value="#{user.password}" />
+                </h:panelGrid>
+                <h:commandButton value = "#{msgs.loginButtonText}" action = "#{user.loginAction}" />
+            </h:form>
     </h:body>
 </html>
 
